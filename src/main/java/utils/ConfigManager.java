@@ -1,0 +1,33 @@
+package utils;
+
+
+
+import cs.Main;
+import org.jetbrains.annotations.NotNull;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
+/**
+ * This class is used to configure the input params provided in the config file
+ */
+public class ConfigManager {
+    @NotNull
+    public static String getProperty(String property) {
+        java.util.Properties prop = new java.util.Properties();
+        try {
+            if (Main.configPath != null) {
+                FileInputStream configFile = new FileInputStream(Main.configPath);
+                prop.load(configFile);
+                configFile.close();
+            } else {
+                System.out.println("Config Path is not specified in cs.Main Arg");
+            }
+            return prop.getProperty(property);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+    
+}
