@@ -1,4 +1,4 @@
-FROM gradle:6.9.1-jdk11-alpine AS builder
+FROM gradle:7.4.2-jdk11 AS builder
 RUN mkdir -p /app/cleaner
 COPY . /app/cleaner
 WORKDIR /app/cleaner

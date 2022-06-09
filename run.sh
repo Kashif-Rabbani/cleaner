@@ -12,7 +12,7 @@ container=CleanerContainer
 
 echo "About to run docker container: ${container}"
 
-docker run -m 100GB -d --name $container -e "JAVA_TOOL_OPTIONS=-Xmx75g" --mount type=bind,source=/srv/data/iq26og/data/,target=/app/data --mount type=bind,source=/srv/data/iq26og/git/shacl/,target=/app/local  $image /app/local/config.properties
+docker run -m 100GB -d --name $container -e "JAVA_TOOL_OPTIONS=-Xmx75g" --mount type=bind, source=/srv/data/iq26og/data/, target=/app/data --mount type=bind, source=/srv/data/iq26og/git/cleaner/, target=/app/local  $image /app/local/config.properties
 
 docker ps
 
